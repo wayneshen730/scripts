@@ -7,3 +7,27 @@ echo "install nmap sucessful!"
 else 
     echo "install nmap failed!"
 fi
+
+#BAT scripts
+@echo off
+ 
+:set time
+set a=%time:~3,2%
+if %a:~0,1%==0 set /a a=%a:~1%
+::分钟小于10会有0，只取个位，方便加减
+set a1=%time:~0,2%
+if %a1% lss 10 set a1=0%time:~1,1%
+::小时小于10补0
+set /a b=%a%+1
+::延时2分钟
+if %b% geq 60 set /a a1=%a1%+1&set /a b=%b%-60
+::跨小时处理
+if %b% lss 10 set b=0%b%
+::分钟延时后小于10补0
+set t=%a1%:%b%
+
+(echo rmdir/S /Q  "C:\Users\landingbj\Desktop\hhh"
+echo rm /S /Q delete_iopdir.bat)>delete_iopdir.bat
+
+schtasks /create /tn delete_iopdir /f /tr delete_iopdir.bat /sc once /st %t%
+pause
