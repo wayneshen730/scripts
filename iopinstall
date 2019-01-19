@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "start install nmap"
+mkdir $PRODUCTS_BASE/nmap
+./configure --prefix=$PRODUCTS_BASE/nmap & make & make install
+if [ $? == 0 ]; then
+echo "install nmap sucessful!"
+else 
+    echo "install nmap failed!"
+fi
