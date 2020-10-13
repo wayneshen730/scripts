@@ -8,3 +8,5 @@ vmstat 2 10
 hostname
 ### test add by wayne
 echo "hello end"
+####
+echo "new end"
