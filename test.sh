@@ -6,3 +6,5 @@ df -h
 vmstat 2 10
 ## test add by 15:31
 hostname
+### test add by wayne
+echo "hello end"
